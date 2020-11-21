@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <title>混同行列計算アプリ</title>
+  </head>
+  <body  class="d-flex flex-column h-100" >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">メインコンテンツへスキップ</span>
+      </div>
+    </a>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">混同行列計算アプリ</a>
+      </nav>
+    </header>
+
+    <main role="main" class="flex-shrink-0">
+      <div class="container">
+        <h1 class="mt-5">混同行列を計算してみよう</h1>
+        <p class="lead">感染症などの検査で、どれだけ正しい結果が出るのか、混同行列で見てみましょう</p>
+      </div>
+      <div class="container">
+        <form method="post" action="#">
+          <fieldset>
+            <legend>人数の想定</legend>
+            <div class="form-group">
+              <label class="col-form-label" for="total">検査する人数</label>
+              <input type="number" class="form-control" id="total" name="total" value="300" min="0">
+              <small>検査する人数を指定します</small>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label" for="infected">感染している人数</label>
+              <input type="number" class="form-control" id="infected" name="infected" value="30" min="0">
+              <small>検査する人のうち何人感染していると想定するかを指定します</small>
+          </div>
+          </fieldset>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" id="recalc" value="再計算">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#optionModal">オプション</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">オプション</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                        <fieldset>
+                  <legend>検査の性能</legend>
+                  <div class="form-group">
+                    <label class="col-form-label" for="sensitivity">感度(%)</label>
+                    <input type="number" class="form-control" id="sensitivity" name="sensitivity" value="70" max="100" min="0" step="0.1">
+                    <small>実際に感染している人のうち、何%が検査で正しく陽性と出るかを指定します</small>
+                 </div>
+                  <div class="form-group">
+                   <label class="col-form-label" for="specificity">特異度(%)</label>
+                    <input type="number" class="form-control" id="specificity" name="specificity" value="99.9" max="100" min="0" step="0.1">
+                    <small>実際には感染していない人のうち、何%が検査で正しく陰性と出るかを指定します</small>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+              <button type="button" class="btn btn-primary" id="apply-option">適用</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2 class="mt-4">混同行列</h2>
+        <table class="table table-bordered">
+          <tr>
+            <th colspan="2" rowspan="2" scope="col"></th>
+            <th colspan="2" scope="col" style="text-align: center;">検査結果</th>
+          </tr>
+          <tr>
+            <th scope="col" style="text-align: center;">陽性</th>
+            <th scope="col" style="text-align: center;">陰性</th>
+          </tr>
+          <tr>
+            <th rowspan="2" scope="row" style="text-align: center; vertical-align: middle;">実際</th>
+            <th scope="row" style="text-align: center;">罹っている</th>
+            <td class="table-info" style="text-align: right;"><span id="true-positive">21</span>人</td>
+            <td class="table-danger" style="text-align: right;"><span id="false-negative">9</span>人</td>
+          </tr>
+          <tr>
+            <th scope="row" style="text-align: center;">罹っていない</th>
+            <td class="table-danger" style="text-align: right;"><span id="false-positive">0.3</span>人</td>
+            <td class="table-info" style="text-align: right;"><span id="true-negative">269.7</span>人</td>
+          </tr>
+        </table>
+        <h3>適合率</h3>
+        <p><span id="precision">98.5</span>% ※検査で陽性と出た人のうち、実際に罹っている人の割合</p>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom">
+        <span class="text-white">八戸工業大学 小久保温研究室</span>
+      </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="confusion-matrix-calculator.js"></script>
+  </body>
+</html>
