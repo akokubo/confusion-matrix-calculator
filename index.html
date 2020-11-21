@@ -37,9 +37,9 @@
               <small>検査する人数を指定します</small>
             </div>
             <div class="form-group">
-              <label class="col-form-label" for="infected">感染している人数</label>
+              <label class="col-form-label" for="infected">罹っている人数</label>
               <input type="number" class="form-control" id="infected" name="infected" value="30" min="0">
-              <small>検査する人のうち何人感染していると想定するかを指定します</small>
+              <small>検査する人のうち何人が罹っていると想定するかを指定します</small>
           </div>
           </fieldset>
           <div class="form-group">
@@ -65,12 +65,12 @@
                   <div class="form-group">
                     <label class="col-form-label" for="sensitivity">感度(%)</label>
                     <input type="number" class="form-control" id="sensitivity" name="sensitivity" value="70" max="100" min="0" step="0.1">
-                    <small>実際に感染している人のうち、何%が検査で正しく陽性と出るかを指定します</small>
+                    <small>実際に罹っている人のうち、何%が検査で正しく陽性と出るかを指定します</small>
                  </div>
                   <div class="form-group">
                    <label class="col-form-label" for="specificity">特異度(%)</label>
                     <input type="number" class="form-control" id="specificity" name="specificity" value="99.9" max="100" min="0" step="0.1">
-                    <small>実際には感染していない人のうち、何%が検査で正しく陰性と出るかを指定します</small>
+                    <small>実際には罹っていない人のうち、何%が検査で正しく陰性と出るかを指定します</small>
                   </div>
                 </fieldset>
               </form>
