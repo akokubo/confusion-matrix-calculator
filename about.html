@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <title>混同行列計算アプリ</title>
+  </head>
+  <body  class="d-flex flex-column h-100" >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">メインコンテンツへスキップ</span>
+      </div>
+    </a>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">混同行列計算アプリ</a>
+      </nav>
+    </header>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.html">混同行列計算アプリ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">ホーム</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="about.html">アプリについて <span class="sr-only">（現在位置）</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="flex-shrink-0" id="content">
+      <div class="container">
+        <h1 class="mt-5">混同行列計算アプリについて</h1>
+        <p>PCR検査などの検査の性能と検査対象の状況から、検査の真陽性数、真陰性数、偽陽性数、偽陰性数などをまとめた混同行列を表示するアプリです。</p>
+
+        <h2 class="mt-4">ライブデモ</h2>
+        <p><a href="https://akokubo.github.io/confusion-matrix-calculator/">ライブデモ</a></p>
+
+        <h2 class="mt-4">ソースコード</h2>
+        <p><a href="https://github.com/akokubo/confusion-matrix-calculator/">ソースコード</a></p>
+
+        <h2 class="mt-4">ライセンス</h2>
+        <p>プログラムのライセンスは<a href="LICENSE">MIT License</a>です。</p>
+
+        <h2 class="mt-4">作者</h2>
+        <p><a href="https://akokubo.github.io/">小久保 温</a></p>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom">
+        <span class="text-white">八戸工業大学 小久保温研究室</span>
+      </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="confusion-matrix-calculator.js"></script>
+  </body>
+</html>

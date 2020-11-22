@@ -18,11 +18,30 @@
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">混同行列計算アプリ</a>
+        <a class="navbar-brand" href="index.html">混同行列計算アプリ</a>
       </nav>
     </header>
 
-    <main role="main" class="flex-shrink-0">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.html">混同行列計算アプリ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./">ホーム <span class="sr-only">（現在位置）</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">アプリについて</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="flex-shrink-0" id="content">
       <div class="container">
         <h1 class="mt-5">混同行列を計算してみよう</h1>
         <p class="lead">感染症などの検査で、どれだけ正しい結果が出るのか、混同行列で見てみましょう。検査の性能(感度、特異度)はオプションで変更できます。計算したい検査に合わせて変更してください。</p>
