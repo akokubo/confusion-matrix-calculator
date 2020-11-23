@@ -33,7 +33,7 @@ class ConfusionMartixCalculator {
         $("#false-positive").html(this.toPrecision1(falsePositive));
         $("#true-negative").html(this.toPrecision1(trueNegative));
 
-        // 適合度の反映
+        // 適合率の反映
         $("#precision").html(this.toPrecision1(precision * 100));
     }
 
