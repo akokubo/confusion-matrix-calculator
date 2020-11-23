@@ -14,18 +14,18 @@ class ConfusionMartixCalculator {
     calc() {
         // フォームから値を取得
         // 検査対象の総人数
-        var total = parseInt($("#total").val());
+        const total = parseInt($("#total").val());
         // 検査対象中の感染者数の予想
-        var infected = parseInt($("#infected").val());
+        const infected = parseInt($("#infected").val());
 
         // 混同行列を計算
-        var truePositive = infected * this.sensitivity / 100.0;
-        var falseNegative = infected * (100.0 - this.sensitivity) / 100.0;
-        var falsePositive = (total - infected) * (100.0 - this.specificity) / 100.0;
-        var trueNegative = (total - infected) * this.specificity / 100.0;
+        const truePositive = infected * this.sensitivity / 100.0;
+        const falseNegative = infected * (100.0 - this.sensitivity) / 100.0;
+        const falsePositive = (total - infected) * (100.0 - this.specificity) / 100.0;
+        const trueNegative = (total - infected) * this.specificity / 100.0;
 
         // 適合度を計算
-        var precision = truePositive / (truePositive + falsePositive);
+        const precision = truePositive / (truePositive + falsePositive);
 
         // 混同行列の反映
         $("#true-positive").html(this.toPrecision1(truePositive));
